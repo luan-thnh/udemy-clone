@@ -1,0 +1,212 @@
+.slider {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 4.8rem;
+
+  &--heading {
+    @include heading1;
+
+    margin-bottom: 0.8rem;
+  }
+
+  &--text {
+    width: 100%;
+    max-width: 80rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+
+    a {
+      color: $purpleDarkColor;
+    }
+  }
+
+  &__btn {
+    @include heading5($purpleDarkColor);
+
+    display: inline-block;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+    padding-left: 0.8rem;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__list {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 1.6rem;
+    overflow: hidden;
+  }
+
+  &__list-five {
+    grid-auto-columns: calc((100% - (5 - 1) * 1.6rem) / 5);
+
+    @include maxWidth($exLarge) {
+      grid-auto-columns: calc((100% - (4 - 1) * 1.6rem) / 4);
+    }
+
+    @include maxWidth($large) {
+      grid-auto-columns: calc((100% - (3 - 1) * 1.6rem) / 3);
+    }
+
+    @include maxWidth($medium) {
+      grid-auto-columns: calc((100% - (2 - 1) * 1.6rem) / 2);
+    }
+  }
+
+  &__item {
+    @include dFlex;
+
+    position: relative;
+    background-color: white;
+    cursor: pointer;
+
+    &--column {
+      justify-content: start;
+      flex-direction: column;
+    }
+  }
+
+  &__item--column &__content {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: translateY(0);
+    padding: 0;
+  }
+
+  &__thumbnail {
+    width: 100%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    @include textBody1;
+
+    width: 100%;
+    max-width: 44rem;
+    position: absolute;
+    top: 50%;
+    left: 7.2rem;
+    padding: 2.4rem;
+    transform: translateY(-50%);
+    background-color: $whiteColor;
+
+    &--heading {
+      @include heading4($blackMediumColor);
+      @include textOverflowEllipsis(2);
+
+      padding-top: 0.8rem;
+      padding-bottom: 0.4rem;
+    }
+
+    &--text {
+      @include textBody3($blackMediumColor);
+      @include textOverflowEllipsis;
+    }
+  }
+
+  &__arrow {
+    width: 40px;
+    height: 40px;
+    color: $whiteColor;
+
+    border-radius: 9999px;
+
+    @include dFlex(center);
+  }
+
+  .slick-arrow {
+    font-size: 2.4rem;
+    z-index: 2;
+
+    &::before {
+      display: none;
+    }
+
+    i {
+      background-color: $blackColor;
+    }
+
+    i:hover {
+      background-color: $blackMediumColor;
+    }
+  }
+
+  .slick-prev {
+    left: 1.6rem;
+    color: $whiteColor;
+  }
+
+  .slick-next {
+    right: 1.6rem;
+    color: $whiteColor;
+    transform: rotate(180deg);
+  }
+
+  &__btn-control {
+    @include dFlex(center);
+
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    border: 0;
+    padding: 0;
+    min-width: 4.8rem;
+    min-height: 4.8rem;
+    border: 1px solid #6a6f73;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 999px;
+    background-color: $blackColor;
+    font-size: 2.4rem;
+
+    &:hover {
+      background-color: $blackMediumColor;
+    }
+  }
+
+  &__wrapper-five &__btn-control {
+    top: 25%;
+  }
+
+  &__btn-prev {
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  &__wrapper-five &__btn-prev {
+    transform: translate(-50%, -50%);
+  }
+
+  &__btn-next {
+    right: 0;
+    transform: translate(50%, -50%) rotate(180deg);
+  }
+
+  &__wrapper-five &__btn-next {
+    transform: translate(50%, -50%) rotate(180deg);
+  }
+
+  &__btn-none {
+    display: none;
+  }
+
+  &__occupation-unit {
+    @include dFlex(start, $gap: 0.8rem);
+
+    padding-bottom: 1.6rem;
+  }
+}

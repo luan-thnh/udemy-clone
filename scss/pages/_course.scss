@@ -1,0 +1,876 @@
+.course {
+  $widthContainer: 70rem;
+
+  position: relative;
+
+  &--heading {
+    @include heading2;
+
+    padding-top: 3.2rem;
+    padding-bottom: 1.6rem;
+  }
+
+  &--text {
+    @include textBody2;
+  }
+
+  // Badge
+  &__badge {
+    &--new,
+    &--bestseller,
+    &--highest-sell {
+      @include textBody3;
+
+      font-weight: 700;
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      color: $browDarkColor;
+    }
+
+    &--new {
+      color: $greenDark;
+      background-color: $greenLight;
+    }
+
+    &--bestseller {
+      color: $grayDarkColor;
+      background-color: $yellowLightColor;
+    }
+
+    &--highest-sell {
+      color: $browDarkColor;
+      background-color: $orangeLightColor;
+    }
+  }
+
+  // Breadcrumb
+  &__breadcrumb {
+    padding: 0 4.8rem;
+  }
+
+  &__breadcrumb {
+    @include dFlex(start, $gap: 0.8rem);
+
+    list-style: none;
+  }
+
+  &__breadcrumb-item {
+    &:not(:last-child)::after {
+      content: '\f105';
+      font-family: FontAwesome;
+      display: inline-block;
+      font-size: 1.2rem;
+      padding-left: 0.4rem;
+    }
+
+    a {
+      @include heading5($purpleLightColor);
+    }
+  }
+
+  // Banner
+  &__banner {
+    background-color: $blackColor;
+    color: $whiteColor;
+
+    &--heading {
+      @include heading1($whiteColor, 'US');
+    }
+
+    &--text {
+      @include textBody1($whiteColor);
+
+      font-size: 1.9rem;
+      padding: 1.6rem 0;
+    }
+  }
+
+  &__banner-container {
+    padding: 3.2rem 0;
+  }
+
+  &__banner-content {
+    max-width: calc($widthContainer + 4.8rem * 2);
+    width: 100%;
+    padding: 1.6rem 4.8rem;
+  }
+
+  &__banner-author {
+    @include textBody2($whiteColor);
+
+    padding: 0.8rem 0;
+
+    a {
+      color: $purpleLightColor;
+      text-decoration: underline;
+    }
+  }
+
+  &__banner-footer {
+    @include dFlex(start, $gap: 1.6rem);
+    @include textBody2($whiteColor);
+  }
+
+  &__banner-footer-col {
+    @include dFlex(start, $gap: 1.2rem);
+  }
+
+  // Container
+  &__container {
+    max-width: calc($widthContainer + 4.8rem * 2);
+    padding: 3.2rem 4.8rem;
+    width: 100%;
+    // margin: 0 auto;
+  }
+
+  &__row {
+    @include dFlex($align: start, $gap: 3.2rem);
+  }
+
+  &__column {
+    flex: 1;
+  }
+
+  // What learn
+  &__what-learn {
+    padding: 0 2.4rem 1.6rem;
+    border: 1px solid $shadowColor;
+  }
+
+  &__what-learn-list {
+    list-style: none;
+  }
+
+  &__what-learn-item {
+    @include textBody2;
+    @include dFlex(start, start);
+
+    span {
+      @include textOverflowEllipsis(2);
+    }
+
+    padding: 0.4rem 0;
+
+    &::before {
+      content: '\F633';
+      font-family: 'bootstrap-icons';
+      margin-right: 1.6rem;
+    }
+  }
+
+  // Content
+  &__content {
+    width: 100%;
+  }
+
+  &__curriculum {
+    @include dFlex;
+
+    padding: 0.8rem 0;
+  }
+
+  &__curriculum-btn-more {
+    @include buttonText;
+  }
+
+  &__content-list {
+    width: 100%;
+  }
+
+  &__content-item {
+    width: 100%;
+    border: 1px solid $shadowColor;
+
+    &--title {
+      @include heading4;
+      @include dFlex(start);
+      flex: 1;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 0;
+    }
+  }
+
+  &__content-item-panel {
+    @include dFlex($gap: 1.6rem);
+
+    width: 100%;
+    padding: 1.6rem 2.4rem;
+    background-color: $lightColor;
+  }
+
+  &__content-item-panel.open &__content-item-icon {
+    transform: rotate(-180deg);
+  }
+
+  &__content-item-icon {
+    transition: 0.3s;
+  }
+
+  &__content-wrapper {
+    padding: 1.6rem 2.4rem;
+    border-top: 1px solid $shadowColor;
+    display: none;
+
+    &--title {
+      @include dFlex(start);
+      flex: 1;
+    }
+
+    &.open {
+      display: block;
+    }
+  }
+
+  &__content-wrapper-item {
+    @include dFlex($gap: 1.6rem);
+
+    padding: 0.8rem 0;
+  }
+
+  &__content-wrapper-summary {
+    margin-left: 1.6rem;
+    color: $grayColor;
+  }
+
+  &__content-wrapper-icon {
+    font-size: 1.6rem;
+  }
+
+  &__content-wrapper-icon-down {
+    font-size: 1.3rem;
+  }
+
+  &__content-wrapper-question {
+    &--icon {
+      display: none;
+    }
+
+    &.code .code-icon,
+    &.question .question-icon,
+    &.lightbulb .lightbulb-icon,
+    &.clipboard .clipboard-icon {
+      display: block;
+    }
+  }
+
+  &__content-wrapper-preview {
+    cursor: pointer;
+  }
+
+  &__content-wrapper-preview &__content-wrapper--title,
+  &__content-wrapper-preview-text {
+    color: $purpleDarkColor;
+    text-decoration: underline;
+  }
+
+  &__content-wrapper-text {
+    cursor: text;
+  }
+
+  &__content-wrapper-text &__content-wrapper-icon {
+    cursor: default;
+  }
+
+  &__content-wrapper-dropdown &__content-wrapper-icon {
+    @include dFlex(center);
+
+    margin-left: 1.4rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 9999px;
+    background-color: #f7f9fa;
+    cursor: pointer;
+  }
+
+  &__content-btn {
+    @include btnPrimary($color: $blackColor, $borderColor: $blackColor);
+    width: 100%;
+    margin-top: 1.6rem;
+    font-size: 1.4rem;
+  }
+
+  // requirement
+  &__requirement,
+  &__description {
+    width: 100%;
+  }
+
+  &__requirement-list,
+  &__description-list {
+    list-style: none;
+    width: 100%;
+  }
+
+  &__requirement-item,
+  &__description-item {
+    @include dFlex(start, $gap: 1.6rem);
+
+    padding: 0.4rem 0;
+
+    &::before {
+      content: '\f111';
+      font-family: FontAwesome;
+      display: inline-block;
+      font-size: 0.6rem;
+      padding-left: 0.4rem;
+    }
+  }
+
+  &__description-content {
+    max-height: 25rem;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(#ffffff, #ffffff, rgba(255, 255, 255, 0));
+
+    &.more {
+      max-height: 100%;
+      -webkit-mask-image: none;
+    }
+  }
+
+  &__description-content &--text {
+    margin-top: 0.8rem;
+  }
+
+  &__description-content &__description-item {
+    margin-top: 0.4rem;
+    padding: 0;
+
+    &::before {
+      font-size: 0.5rem;
+    }
+  }
+
+  &__description-btn {
+    @include buttonText;
+    @include dFlex(start, $gap: 0.8rem);
+
+    margin-top: 1.6rem;
+
+    &--icon {
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+
+    &--less {
+      display: none;
+    }
+
+    &.more &--icon {
+      transform: rotate(-180deg);
+    }
+
+    &.more &--more {
+      display: none;
+    }
+
+    &.more &--less {
+      display: block;
+    }
+  }
+
+  // bought course
+  &__bought-course {
+    &--name {
+      @include textOverflowEllipsis(2);
+    }
+  }
+  &__bought-course &--heading {
+    padding-bottom: 0;
+  }
+
+  &__bought-course-list {
+    list-style: none;
+    max-height: 63.5rem;
+    overflow: hidden;
+
+    &.more {
+      max-height: 100%;
+      overflow: visible;
+    }
+  }
+
+  &__bought-course-item {
+    padding: 1.6rem 0;
+    border-bottom: 1px solid $shadowColor;
+  }
+
+  &__bought-course-link {
+    @include dFlex($align: start);
+  }
+
+  &__bought-course-thumbnail {
+    width: 6.4rem;
+    height: 6.4rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__bought-course-content {
+    flex: 2;
+    padding-left: 0.8rem;
+    min-width: 18rem;
+  }
+
+  &__bought-course-comparison {
+    @include dFlex;
+    @include textBody2;
+
+    flex: 1.4;
+    margin-left: 2.4rem;
+  }
+
+  &__bought-course-info {
+    margin-top: 0.4rem;
+  }
+
+  &__bought-course-like {
+    align-self: center;
+    margin-left: 1.6rem;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    border-radius: 9999px;
+    border: 1px solid $blackColor;
+    background-color: transparent;
+    font-size: 1.6rem;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  &__bought-course-total-time {
+    @include heading5($greenColor);
+  }
+
+  &__bought-course-update-time {
+    @include textBody2;
+  }
+
+  &__bought-course-star {
+    @include heading5($browColor);
+
+    white-space: nowrap;
+
+    i {
+      color: $browMediumColor;
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+    }
+  }
+
+  &__bought-course-student {
+    display: flex;
+    gap: 0.4rem;
+    margin: 0 2.4rem;
+  }
+
+  &__bought-course-price {
+    @include heading5;
+  }
+
+  &__bought-course-btn {
+    @include btnPrimary($color: $blackColor, $borderColor: $blackColor);
+    @include heading5;
+
+    width: 100%;
+
+    &--less {
+      display: none;
+    }
+
+    &.more &--more {
+      display: none;
+    }
+
+    &.more &--less {
+      display: block;
+    }
+  }
+
+  // instructor
+  &__instructor {
+    &--name {
+      @include heading3;
+
+      text-decoration: underline;
+      text-underline-offset: 0.4rem;
+
+      a {
+        color: $purpleDarkColor;
+      }
+    }
+
+    &--job {
+      @include textBody1($grayColor);
+
+      margin-top: 0.2rem;
+    }
+  }
+
+  &__instructor-profile {
+    @include dFlex(start, $gap: 1.6rem);
+
+    margin-top: 0.8rem;
+  }
+
+  &__instructor-profile-image {
+    width: 11.2rem;
+    height: 11.2rem;
+    overflow: hidden;
+    border-radius: 9999px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__instructor-profile-list {
+    list-style: none;
+    max-width: 118.4rem;
+  }
+
+  &__instructor-profile-item {
+    @include dFlex(start);
+
+    padding: 0.4rem 0;
+
+    i {
+      font-size: 1.2rem;
+      min-width: 1.96rem;
+      text-align: center;
+    }
+
+    span {
+      @include textBody2;
+      margin-left: 1.6rem;
+    }
+  }
+
+  &__instructor-description {
+    margin-top: 0.8rem;
+  }
+
+  &__instructor-description &--text {
+    padding: 0.4rem 0;
+  }
+
+  // rating
+  &__rating {
+  }
+
+  &__rating &--heading {
+    @include dFlex(start, $gap: 0.8rem);
+  }
+
+  &__rating-comment {
+    margin-top: 0.8rem;
+  }
+
+  &__rating-comment-item {
+    padding-top: 2.4rem;
+    padding-bottom: 3.2rem;
+    border-top: 1px solid $shadowColor;
+  }
+
+  &__rating-heading {
+    @include dFlex;
+  }
+
+  &__rating-name-and-star {
+    @include dFlexCol(start, start);
+
+    flex: 1;
+    margin-left: 1.6rem;
+  }
+
+  &__rating-avatar {
+    @include heading4($whiteColor);
+
+    width: 4rem;
+    height: 4rem;
+    background-color: $blackColor;
+    border-radius: 9999px;
+    overflow: hidden;
+
+    img,
+    p {
+      @include dFlex(center);
+
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__rating-name {
+    @include heading4;
+  }
+
+  &__rating-star-and-time {
+    @include dFlex(start, $gap: 0.8rem);
+  }
+
+  &__rating-star {
+    font-size: 1rem;
+    color: $browMediumColor;
+  }
+
+  &__rating-time {
+    @include textBody3($grayColor);
+
+    font-weight: 700;
+  }
+
+  &__rating-btn-report {
+    background-color: transparent;
+    font-size: 1.8rem;
+    padding: 1.6rem;
+  }
+
+  &__rating-content {
+    @include textBody1;
+
+    padding: 1.6rem 0;
+  }
+
+  &__rating-feedback {
+    @include dFlex(start, $gap: 1.4rem);
+
+    &--label {
+      @include textBody3($grayColor);
+    }
+  }
+
+  &__rating-feedback-action {
+    @include dFlex(start, $gap: 1.6rem);
+
+    button {
+      font-size: 1.8rem;
+      background-color: transparent;
+    }
+  }
+
+  &__rating-btn-dislike {
+    transform: rotate(180deg);
+  }
+
+  &__rating-btn-show-all {
+    @include btnPrimary($color: $blackColor, $borderColor: $blackColor);
+    @include heading5;
+  }
+
+  // more course
+  &__more-course--link {
+    @include buttonText;
+    @include heading2($purpleDarkColor);
+  }
+
+  &__more-course-card {
+    padding-bottom: 3.2rem;
+  }
+
+  &__more-course-btn {
+    margin-bottom: 2.4rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid $shadowColor;
+    width: 100%;
+
+    button {
+      @include btnPrimary($color: $blackColor, $borderColor: $blackColor);
+      @include heading5;
+
+      width: 100%;
+    }
+  }
+
+  // Sidebar
+  &__sidebar {
+    width: 34rem;
+    position: absolute;
+    top: -24rem;
+    right: 4.8rem;
+    border: 1px solid $shadowColor;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
+    background-color: $whiteColor;
+
+    &--heading {
+      @include heading1(unknown, 'US');
+    }
+
+    &--sub-heading {
+      @include heading4;
+
+      padding-top: 1.6rem;
+    }
+  }
+
+  &__sidebar-thumbnail {
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(28, 29, 31, 0) 0%, rgba(28, 29, 31, 0.9) 100%);
+    }
+
+    img {
+      width: 100%;
+    }
+
+    &--icon {
+      @include dFlex(center);
+
+      width: 6.4rem;
+      height: 6.4rem;
+      border-radius: 9999px;
+      color: $blackColor;
+      font-size: 4.8rem;
+      background-color: $whiteColor;
+    }
+  }
+
+  &__sidebar-thumbnail-content {
+    @include dFlexCol(center, $gap: 3.2rem);
+
+    position: absolute;
+    z-index: 1;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: $whiteColor;
+
+    p {
+      @include heading4($whiteColor);
+    }
+  }
+
+  &__sidebar-fixed {
+    position: sticky;
+    top: 35rem;
+    z-index: 99;
+    background-color: $whiteColor;
+  }
+
+  &__sidebar-content {
+    padding: 2.4rem;
+  }
+
+  &__sidebar-btn-group {
+    width: 100%;
+  }
+
+  &__sidebar-btn-row {
+    @include dFlex($gap: 0.8rem);
+
+    margin-top: 1.6rem;
+  }
+
+  &__sidebar-btn-add {
+    @include btnPrimary($purpleMediumColor, $whiteColor);
+    @include heading4($whiteColor);
+
+    flex: 1;
+  }
+
+  &__sidebar-btn-like {
+    @include btnPrimary($color: $blackColor, $borderColor: $blackColor);
+    @include heading4;
+
+    min-width: 4.8rem;
+    font-size: 2rem;
+  }
+
+  &__sidebar-btn-buy {
+    @include btnPrimary($color: $blackColor, $borderColor: $blackColor);
+    @include heading4;
+
+    width: 100%;
+    margin-top: 0.8rem;
+  }
+
+  &__sidebar-money-back {
+    @include textBody3;
+
+    display: block;
+    padding: 1.6rem 0;
+    text-align: center;
+  }
+
+  &__sidebar-list {
+    padding-top: 0.8rem;
+  }
+
+  &__sidebar-item {
+    @include dFlex(start, $gap: 1.6rem);
+    @include heading2;
+
+    padding: 0.4rem 0;
+  }
+
+  &__sidebar-item-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    min-height: 1.96rem;
+    font-size: 1.6rem;
+  }
+
+  &__sidebar-btn-text {
+    @include dFlex($gap: 2.4rem);
+
+    margin-top: 0.8rem;
+    padding-bottom: 1.6rem;
+  }
+
+  &__sidebar-btn-link {
+    @include heading5;
+
+    white-space: nowrap;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+  }
+
+  &__sidebar-training {
+    position: relative;
+    padding: 2.4rem;
+    border-top: 1px solid $shadowColor;
+
+    &--heading {
+      @include heading3;
+    }
+
+    &--btn {
+      @include btnPrimary($color: $blackColor, $borderColor: $blackColor);
+      @include heading4;
+
+      width: 100%;
+      margin-top: 0.8rem;
+    }
+  }
+
+  &__sidebar-training &--text {
+    padding: 0.4rem 0;
+  }
+}

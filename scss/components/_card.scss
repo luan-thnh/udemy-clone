@@ -1,0 +1,93 @@
+.card {
+  @include dFlex;
+
+  max-width: 37.5rem;
+  min-width: 17.3rem;
+  position: relative;
+  z-index: -1;
+  background-color: white;
+  cursor: pointer;
+
+  &--ml {
+    max-width: calc((100% - (3 - 1) * 1.6rem) / 3);
+  }
+
+  &--row {
+    @include dFlex(start, $gap: 1.6rem);
+    flex-wrap: wrap;
+  }
+
+  &--column {
+    justify-content: start;
+    flex-direction: column;
+  }
+
+  &--column &__content {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: translateY(0);
+    padding: 0;
+  }
+
+  &__thumbnail {
+    width: 100%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    @include textBody1;
+
+    width: 100%;
+    max-width: 44rem;
+    position: absolute;
+    top: 50%;
+    left: 7.2rem;
+    padding: 2.4rem;
+    transform: translateY(-50%);
+    background-color: $whiteColor;
+
+    &--heading {
+      @include heading4($blackMediumColor);
+      @include textOverflowEllipsis(2);
+
+      padding-top: 0.8rem;
+      padding-bottom: 0.4rem;
+    }
+
+    &--text {
+      @include textBody3($blackMediumColor);
+      @include textOverflowEllipsis;
+    }
+
+    &--number {
+      @include heading5($browColor);
+    }
+
+    &--price {
+      @include heading4;
+
+      margin-bottom: 0.8rem;
+    }
+
+    &--info {
+      padding: 0.4rem 0;
+    }
+  }
+
+  &__content-rate {
+    @include dFlex(start, $gap: 0.4rem);
+
+    margin: 0.4rem 0;
+  }
+
+  &__content-stars {
+    font-size: 1.2rem;
+    color: $browMediumColor;
+  }
+}
